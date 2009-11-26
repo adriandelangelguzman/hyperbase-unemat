@@ -1,0 +1,75 @@
+#menu{
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-size: 12px;
+   font-weight: bold;
+   left: 0;
+   list-style: none;
+   margin: 1px;
+   padding: 1px;
+   position: relative;
+   text-decoration: none;
+   top: 0;
+   z-index: 1
+}
+li ul{
+	position:relative;
+	display:none;
+	padding:1px;
+	margin:1px;
+	list-style:none;
+}
+li{
+   background-color: #ffffff;
+   border: 1px solid black;
+   border-bottom-color: gray;
+   border-bottom-style: solid;
+   border-bottom-width: 1px;
+   border-left-color: gray;
+   border-left-style: solid;
+   border-left-width: 1px;
+   border-right-color: gray;
+   border-right-style: solid;
+   border-right-width: 1px;
+   border-top-color: gray;
+   border-top-style: solid;
+   border-top-width: 1px;
+   color: #000000;
+   margin: 1px;
+   padding: 1px;
+   position: relative
+}
+.subMenu{
+	background-repeat:no-repeat;
+}
+.click{
+   background-color: #ffffff;
+   color: #000000
+}
+.click ul{
+	display:block;
+}
+.hover, ul li a:hover{
+   background-color: #ffffff;
+   color: #000000;
+   cursor: pointer
+}
+li ul li.hover, li ul li.hover a:hover{
+   background-color: #cccccc
+}
+li a{
+	width:100%;
+}
+li a, li ul li a, li.hover ul li a{
+   color: #000000;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-size: 10px;
+   font-weight: bold;
+   text-decoration: none
+}
+li.hover a, li ul li.hover a{
+   color: #000000;
+   font-family: Verdana,Arial,Helvetica,sans-serif;
+   font-size: 10px;
+   font-weight: bold;
+   text-decoration: none
+}
