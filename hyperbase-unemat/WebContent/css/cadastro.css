@@ -1,0 +1,87 @@
+
+form {
+	text-align: left;
+	width: 400px;
+	margin: 5px;
+	padding: 0px;
+	background-color: #fff;
+}
+.cadastro {
+	border: 1px solid #ccc;
+	width: 400px;
+}
+.legenda {
+	font-weight: bold;
+	color: #ccc;
+    font-weight: normal;
+    font-size: 16px;
+}
+a:link, a:visited, a:hover {
+    color: #666;
+    font-weight: bold;
+    text-decoration: none;
+} 
+
+h1 {
+    color: #006dba;
+    font-weight: normal;
+    font-size: 16px;
+    margin: .8em 0 .3em 0;
+}
+
+input, select, textarea {
+    background-color: #fcfcfc;
+    border: 0.5px solid #ccc;
+    font: 11px verdana, arial, helvetica, sans-serif;
+    margin: 5px 0;
+    padding: 2px 4px;
+}
+select {
+   padding: 2px 2px 2px 0;
+}
+textarea {
+	width: 388px;
+	height: 80px;
+	vertical-align: top;
+}
+input#idtitulo {
+	width: 315px;
+}
+input:focus, select:focus, textarea:focus {
+    border: 1.5px solid #b2d1ff;
+}
+
+.body {
+    float: left;
+    margin: 0 5px 5px 5px;
+}
+
+body {
+	font-family: verdana, arial, helvetica, sans-serif;
+	font-size: 12px;
+}
+
+h1 {
+	color: #C7D92C;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+a {
+	color: white;
+}
+
+.form {
+	padding: 0 20px;
+	float: left;
+	width: 230px;
+}
+
+div.button {
+	height: 29px;
+	width: 133px;
+	font-size: 14px;
+	color: #C7D92C;
+	text-align: center;
+	padding-top: 15px;
+}

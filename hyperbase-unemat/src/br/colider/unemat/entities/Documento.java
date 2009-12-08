@@ -2,12 +2,15 @@ package br.colider.unemat.entities;
 
 import java.util.Date;
 
-public abstract class Document {
+
+
+
+public abstract class Documento {
 	private int id;
 	private String titulo;
 	private int numpage;
-	private String data;
-	private String link;
+	private Date data;
+	private String caminhoArquivo;
 
 	public int getId() {
 		return id;
@@ -33,20 +36,20 @@ public abstract class Document {
 		this.numpage = numpage;
 	}
 
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
 	public String getLink() {
-		return link;
+		return caminhoArquivo;
 	}
 
 	public void setLink(String link) {
-		this.link = link;
+		this.caminhoArquivo = link;
 	}
 
 }

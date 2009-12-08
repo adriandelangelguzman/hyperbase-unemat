@@ -1,8 +1,13 @@
 package br.colider.unemat.entities;
 
 public class Professor extends User{
+	
 	private String matricula;
-
+	
+	public Professor(){
+		
+	}
+	
 	public String getMatricula() {
 		return matricula;
 	}

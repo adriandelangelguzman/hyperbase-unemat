@@ -13,20 +13,20 @@ import br.colider.unemat.entities.Aluno;
 public class AlunoDao{
 	private Connection connection;
 
-	public AlunoDao() throws SQLException {
+	public AlunoDao()  throws SQLException{
 		this.connection = ConnectionFactory.getConnection();
 	}
 
 	public void adiciona(Aluno aluno) throws SQLException {
-		String sql = "INSERT INTO alunos (matricula,login,nome,senha,email)"
+		String sql = "INSERT INTO alunos (matricula,login,senha,nome,email)"
 				+ "values (?,?,?,?,?)";
 
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
 		stmt.setString(1, aluno.getMatricula());
 		stmt.setString(2, aluno.getLogin());
-		stmt.setString(3, aluno.getNome());
-		stmt.setString(4, aluno.getSenha());
+		stmt.setString(3, aluno.getSenha());
+		stmt.setString(4, aluno.getNome());
 		stmt.setString(5, aluno.getEmail());
 
 		stmt.execute();
@@ -34,7 +34,7 @@ public class AlunoDao{
 	}
 
 	public List<Aluno> getLista() throws SQLException {
-		String sql = "SELECT * FROM alunos";
+		String sql = "SELECT matricula,login,nome,email FROM alunos";
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
 
 		ResultSet rs = stmt.executeQuery();
@@ -88,7 +88,9 @@ public class AlunoDao{
 		stmt.execute();
 		stmt.close();
 	}
-
+	/*
+	 * Verificar Integridade Referencial
+	 */
 	public void remove(Aluno aluno) throws SQLException {
 		String sql = "delete from alunos where matricula=?";
 		
