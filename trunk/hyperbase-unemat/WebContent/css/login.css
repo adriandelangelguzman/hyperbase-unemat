@@ -1,0 +1,17 @@
+body,td,a:link,a:visited {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #000000;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #FF0000;
+}
+
+input {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+}

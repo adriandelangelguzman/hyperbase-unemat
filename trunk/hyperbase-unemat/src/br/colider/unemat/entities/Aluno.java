@@ -2,6 +2,7 @@ package br.colider.unemat.entities;
 
 
 public class Aluno extends User{
+	
 	private String matricula;
 
 	public Aluno(){
