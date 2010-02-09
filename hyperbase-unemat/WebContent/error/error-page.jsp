@@ -2,7 +2,7 @@
 <html>
 <head></head>
 <body>
-	Um erro ocorreu.
+	Um erro ocorreu.Desculpe pelos transtornos
 <br />
 	${pageContext.errorData.throwable}
 </body>

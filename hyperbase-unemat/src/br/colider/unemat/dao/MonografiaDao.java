@@ -11,16 +11,20 @@ import br.colider.unemat.database.ConnectionFactory;
 import br.colider.unemat.entities.Monografia;
 
 public class MonografiaDao {
+	
 	private Connection connection;
 
 	public MonografiaDao() throws SQLException {
-		this.connection = ConnectionFactory.getConnection();
+		
+		this.connection =  ConnectionFactory.getConnection();
 	}
 
-	public void adiciona(Monografia monografia) throws SQLException {
+	public int adiciona(Monografia monografia) throws SQLException {
+		
+		
 		String sql = "INSERT INTO monografias (titulo,resumo,abstract,numpage,data,"
-				+ "palavraschave,localpdf) values (?,?,?,?,?,?,?)";
-
+				+ "palavraschave) values (?,?,?,?,?,?)";
+		
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
 		stmt.setString(1, monografia.getTitulo());
@@ -32,12 +36,36 @@ public class MonografiaDao {
 		stmt.setDate(5, data);
 		
 		stmt.setString(6, monografia.getKeywords());
-		stmt.setString(7, monografia.getLink());
+		
+		stmt.execute();
+		
+		sql = "SELECT MAX(idMonografia) FROM monografias";
+		stmt = connection.prepareStatement(sql);
+		
+		ResultSet rs = stmt.executeQuery();
+		int result = -1;
+		if(rs.next()){
+			result = rs.getInt("MAX(idMonografia)");
+		}
+		
+		stmt.close();
+		
+		return result;
+	}
+	public boolean adicionaPdf(Monografia monografia , String pdfname) throws SQLException {
+		
+		String sql = "UPDATE monografias set localpdf=? where idMonografia=?";
+
+		PreparedStatement stmt = connection.prepareStatement(sql);
+
+		stmt.setString(1, pdfname);
+		stmt.setInt(2, monografia.getId());
 
 		stmt.execute();
-		stmt.close();
+		
+		return true;
 	}
-
+	
 	public List<Monografia> getLista() throws SQLException {
 		String sql = "SELECT * FROM monografias";
 		PreparedStatement stmt = this.connection.prepareStatement(sql);

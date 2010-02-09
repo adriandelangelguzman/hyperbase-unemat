@@ -18,27 +18,47 @@ public class ProjetoDao {
 		this.connection = ConnectionFactory.getConnection();
 	}
 
-	public void adiciona(Projeto projeto) throws SQLException {
-		String sql = "INSERT INTO projetos (titulo,resumo,numpage,data,local,"
-				+ "publico,ano,semestre,localpdf) values (?,?,?,?,?,?,?,?,?)";
+	public int adiciona(Projeto projeto) throws SQLException {
+		String sql = "INSERT INTO projetos (titulo,local,"
+				+ "publico,ano,semestre) values (?,?,?,?,?)";
 
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
 		stmt.setString(1, projeto.getTitulo());
-		stmt.setString(2, projeto.getResumo());
-		stmt.setInt(3, projeto.getNumpage());
+		stmt.setString(2, projeto.getLocal());
+		stmt.setString(3, projeto.getPublicoAlvo());
+		stmt.setInt(4, projeto.getAno());
+		stmt.setInt(5, projeto.getSemestre());
+
+		stmt.execute();
 		
-		java.sql.Date data = new java.sql.Date(projeto.getData().getTime());
-		stmt.setDate(4, data);
+		sql = "SELECT MAX(idProjeto) FROM projetos";
+		stmt = connection.prepareStatement(sql);
 		
-		stmt.setString(5, projeto.getLocal());
-		stmt.setString(6, projeto.getPublicoAlvo());
-		stmt.setString(7, projeto.getAno());
-		stmt.setString(8, projeto.getSemestre());
-		stmt.setString(9, projeto.getLink());
+		ResultSet rs = stmt.executeQuery();
+		int result = -1;
+		if(rs.next()){
+			result = rs.getInt("MAX(idProjeto)");
+		}
+		rs.close();
+		stmt.close();
+		
+		return result;
+	}
+	
+public boolean adicionaPdf(Projeto projeto , String pdfname) throws SQLException {
+		
+		String sql = "UPDATE projetos set localpdf=? where idProjeto=?";
+
+		PreparedStatement stmt = connection.prepareStatement(sql);
+
+		stmt.setString(1, pdfname);
+		stmt.setInt(2, projeto.getId());
 
 		stmt.execute();
 		stmt.close();
+		
+		return true;
 	}
 
 	public List<Projeto> getLista() throws SQLException {
@@ -54,16 +74,10 @@ public class ProjetoDao {
 
 			projeto.setId(rs.getInt("idProjeto"));
 			projeto.setTitulo(rs.getString("titulo"));
-			projeto.setResumo(rs.getString("resumo"));
-			projeto.setNumpage(rs.getInt("numpage"));
-			
-			java.sql.Date data = new java.sql.Date(rs.getDate("data").getTime());
-			projeto.setData(data);
-			
 			projeto.setLocal(rs.getString("local"));
 			projeto.setPublicoAlvo("publico");
-			projeto.setAno(rs.getString("ano"));
-			projeto.setSemestre(rs.getString("semestre"));
+			projeto.setAno(rs.getInt("ano"));
+			projeto.setSemestre(rs.getInt("semestre"));
 			projeto.setLink(rs.getString("localpdf"));
 
 			projetos.add(projeto);
@@ -74,7 +88,7 @@ public class ProjetoDao {
 	}
 
 	public Projeto getProjetoById(int id) throws SQLException {
-		String sql = "SELECT titulo,resumo,numpage,data,local,"
+		String sql = "SELECT titulo,data,local,"
 				+ "publico,ano,semestre,localpdf FROM projetos WHERE idProjeto=? LIMIT 1";
 
 		PreparedStatement stmt = this.connection.prepareStatement(sql);
@@ -89,16 +103,10 @@ public class ProjetoDao {
 			projeto = new Projeto();
 
 			projeto.setTitulo(rs.getString("titulo"));
-			projeto.setResumo(rs.getString("resumo"));
-			projeto.setNumpage(rs.getInt("numpage"));
-			
-			java.sql.Date data = new java.sql.Date(rs.getDate("data").getTime());
-			projeto.setData(data);
-			
 			projeto.setLocal(rs.getString("local"));
 			projeto.setPublicoAlvo("publico");
-			projeto.setAno(rs.getString("ano"));
-			projeto.setSemestre(rs.getString("semestre"));
+			projeto.setAno(rs.getInt("ano"));
+			projeto.setSemestre(rs.getInt("semestre"));
 			projeto.setLink(rs.getString("localpdf"));
 		}
 		rs.close();
@@ -108,24 +116,18 @@ public class ProjetoDao {
 
 	public void altera(Projeto projeto) throws SQLException {
 		String sql = "update projetos set "
-				+ "titulo=?,resumo=?,numpage=?,data=?,local=?,"
+				+ "titulo=?,local=?,"
 				+ "publico=?,ano=?,semestre=?,localpdf=? where idProjeto=?";
 
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
 		stmt.setString(1, projeto.getTitulo());
-		stmt.setString(2, projeto.getResumo());
-		stmt.setInt(3, projeto.getNumpage());
-		
-		java.sql.Date data = new java.sql.Date(projeto.getData().getTime());
-		stmt.setDate(4, data);
-		
-		stmt.setString(5, projeto.getLocal());
-		stmt.setString(6, projeto.getPublicoAlvo());
-		stmt.setString(7, projeto.getAno());
-		stmt.setString(8, projeto.getSemestre());
-		stmt.setString(9, projeto.getLink());
-		stmt.setInt(10, projeto.getId());
+		stmt.setString(4, projeto.getLocal());
+		stmt.setString(5, projeto.getPublicoAlvo());
+		stmt.setInt(6, projeto.getAno());
+		stmt.setInt(7, projeto.getSemestre());
+		stmt.setString(8, projeto.getLink());
+		stmt.setInt(9, projeto.getId());
 
 		stmt.execute();
 		stmt.close();
@@ -133,10 +135,11 @@ public class ProjetoDao {
 
 	public void remove(Projeto projeto) throws SQLException {
 		String sql = "delete from projetos where idProjeto=?";
-
+		
 		PreparedStatement stmt = connection.prepareStatement(sql);
 
 		stmt.setInt(1, projeto.getId());
 		stmt.execute();
+		stmt.close();
 	}
 }

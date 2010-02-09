@@ -1,0 +1,41 @@
+int readpin1=8;
+int readpin2=7;
+int pinout=13;
+int val=0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(readpin1,INPUT);
+  pinMode(readpin2,INPUT);
+
+  pinMode(pinout,OUTPUT);
+}
+
+void loop()
+{
+  val=digitalRead(readpin1);
+  if(val==1)
+  {
+    digitalWrite(pinout,HIGH);
+    Serial.print(7);    
+  }
+  else
+  {
+    digitalWrite(pinout,LOW);
+   Serial.print(0);    
+  }
+ 
+  val=digitalRead(readpin2);
+  if(val==1)
+  {
+    digitalWrite(pinout,HIGH);
+    Serial.println(8);    
+  }
+  else
+  {
+    digitalWrite(pinout,LOW);
+   Serial.println(0);    
+  }
+   
+}

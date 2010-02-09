@@ -1,0 +1,181 @@
+@CHARSET "UTF-8";
+
+body{
+	margin:0;
+	font-size: 0.8em;
+	font-family: tahoma,verdana,sans-serif;
+	color:black;
+}
+#header,#menu,#content,#footer{
+	float:left;
+}
+#base{
+	margin:auto;
+	width:980px;
+	height:auto;
+}
+#header{
+	height:100px;
+	width:100%;
+	background: url("../../images/top.png") top center no-repeat;
+}
+#menu{
+	height:auto;
+	width:200px;
+	font-size: 0.9em;
+}
+#content{
+	width:780px;
+	height:auto;
+	font-size:1em;
+}
+#content h1{
+	color:#8E9DAF;
+}
+#content h2{
+	font-family: Trebuchet MS;
+	font-size:1.2em;
+	color:#5F7F6F;
+}
+#content ul{
+	list-style: url("../../images/busca.png")
+}
+#content p{
+	margin-bottom:15px;
+}
+#content img{
+	margin:10px;
+}
+#content div.block{
+	width:340px;
+	float:left;
+}
+#footer{
+	width:100%;
+	height:50px;
+	background-color:#e7f1e3;
+	font-size:0.65em;
+	color:#555;
+	padding:5px;
+	text-align:right;
+}
+#menu ul{
+	list-style:none;
+	padding:10px;
+	padding-left:0;
+	margin:0;
+}
+
+#menu ul li{
+	padding:2px;
+	padding-left:0px;
+	margin-left:0;
+	margin-bottom:15px;
+	height:25px;
+	border-bottom:1px dotted green;
+	border-left:0px solid green;
+}
+#menu ul li span {
+	margin-right: 2px;
+	padding:12px;
+	float: left;
+}
+
+#menu ul li span#id_cadm {
+	background: url("../../images/cadm.png") no-repeat;
+	background-position: center;
+}
+#menu ul li span#id_cadp {
+	background: url("../../images/proj.png") no-repeat;
+}
+#menu ul li span#id_ajuda {
+	background: url("../../images/ajuda.png") no-repeat;
+}
+#menu ul li span#id_aluno {
+	background: url("../../images/aluno.png") no-repeat;
+}
+	
+#menu ul li:hover{
+	border-left-color: #bfcfe2;
+	cursor:pointer;
+	background-color:#484848;
+	color:#bfcfe2;
+}
+#menu ul li:active{
+	border-left-color: yellow;
+	color:yellow;
+}
+
+/** FORMS **/
+
+input,select,textarea {
+	background-color: #e7f1e3;
+	border-style:solid;
+	border-color: #cbd7c4;
+	border-width: 0.5px;
+	font: 11px verdana, arial, helvetica, sans-serif;
+	margin: 1px 0px;
+	padding: 3px 0px;
+}
+
+select {
+	padding: 2px 2px 2px 0;
+}
+
+textarea {
+	width: 400px;
+	height: 80px;
+	vertical-align: top;
+}
+
+textarea#keywords {
+	height: 40px;
+}
+
+input#idtitulo {
+	width: 188px;
+}
+
+input#pdf {
+	width: 188px;
+	border-style:solid;
+	border-color: #cbd7c4;
+	border-width: 0.5px;
+	font: 11px verdana, arial, helvetica, sans-serif;
+	margin: 1px 0px;
+	padding: 3px 0px;
+}
+
+input#idbusca {
+	background: url(../../images/buscar.png) top left no-repeat;
+	cursor:pointer;
+	width:70px;
+	height:20px;
+	border: 0px;
+	margin-right: 10px;
+}
+input[disabled] {
+	border: 0px;
+	background-color: #fff;
+}
+input:focus,select:focus,textarea:focus {
+	border: 1.5px solid #5dab37;
+}
+.cadastro {
+	border:0;
+	width: 200px;
+}
+#abusca {
+	border:0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.legenda {
+	font-weight: bold;
+	color: #ccc;
+	font-weight: normal;
+	font-size: 16px;
+}
+#parte1 #parte2{
+	position: absolute;
+}

@@ -33,8 +33,14 @@ public class CadastraAluno implements Logic {
 		aluno.setNome(nome);
 		aluno.setEmail(email);
 		
+		System.out.println(matricula);
+		System.out.println(login);
+		System.out.println(senha);
+		System.out.println(nome);
+		System.out.println(email);
+		
 		AlunoDao dao = new AlunoDao();
-		//dao.adiciona(aluno);
+		dao.adiciona(aluno);
 
 		PrintWriter out = response.getWriter();
 		out.write("Cadastro Efetuado!");
