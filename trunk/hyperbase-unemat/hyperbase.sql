@@ -1,12 +1,16 @@
-CREATE DATABASE hyperbase;
+CREATE DATABASE IF NOT EXISTS hyperbase;
 
 USE hyperbase;
 
-CREATE TABLE administradores(
+CREATE TABLE  IF NOT EXISTS administradores(
+	idAdministrador INT NOT NULL AUTO_INCREMENT ,
+	login VARCHAR(100) NOT NULL ,
+	senha VARCHAR(50) NOT NULL ,
+	email VARCHAR(45) NOT NULL ,
+	PRIMARY KEY (idAdministrador)
+) ENGINE=InnoDB;
 
-)ENGINE = InnoDB;
-
-CREATE TABLE alunos (
+CREATE TABLE  IF NOT EXISTS alunos (
 	idAluno INT NOT NULL AUTO_INCREMENT ,
 	matricula VARCHAR(15) NOT NULL,
 	login VARCHAR(50) NOT NULL ,
@@ -16,7 +20,7 @@ CREATE TABLE alunos (
 	PRIMARY KEY (idAluno) 
 )ENGINE = InnoDB;
 
-CREATE TABLE professores (
+CREATE TABLE  IF NOT EXISTS professores (
 	idProfessor INT NOT NULL AUTO_INCREMENT ,
 	matricula VARCHAR(15) NOT NULL,
 	login VARCHAR(50) NOT NULL ,
@@ -26,21 +30,18 @@ CREATE TABLE professores (
 	PRIMARY KEY (idProfessor) 
 )ENGINE = InnoDB;
 
-CREATE TABLE projetos (
+CREATE TABLE  IF NOT EXISTS projetos (
 	idProjeto INT NOT NULL AUTO_INCREMENT ,
-	titulo VARCHAR(150) NOT NULL ,
-	resumo TEXT,
-	numpage INT ,
-	data DATE ,
-	local	VARCHAR(100) ,
-	publico	VARCHAR(100) ,
-	ano	VARCHAR(4) NOT NULL,
-	semestre VARCHAR(2) NOT NULL,
-	localpdf VARCHAR(100) NOT NULL,
+	titulo VARCHAR(250) NOT NULL ,
+	local	VARCHAR(200) ,
+	publico	VARCHAR(200) ,
+	ano	INT,
+	semestre INT ,
+	localpdf VARCHAR(200) ,
 	PRIMARY KEY (idProjeto)
 )ENGINE = InnoDB;
 
-CREATE TABLE discente_projetos (
+CREATE TABLE  IF NOT EXISTS discente_projetos (
 	idDiscentesProjeto INT NOT NULL AUTO_INCREMENT ,
 	idDiscente INT NOT NULL,
 	idProjeto INT NOT NULL,
@@ -49,7 +50,7 @@ CREATE TABLE discente_projetos (
 	FOREIGN KEY (idProjeto) REFERENCES projetos (idProjeto) ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
-CREATE TABLE monografias (
+CREATE TABLE  IF NOT EXISTS monografias (
 	idMonografia INT NOT NULL AUTO_INCREMENT ,
 	titulo VARCHAR(150) NOT NULL ,
 	resumo TEXT,
@@ -61,7 +62,7 @@ CREATE TABLE monografias (
 	PRIMARY KEY (idMonografia)
 )ENGINE = InnoDB;
 
-CREATE TABLE discente_monografia (
+CREATE TABLE  IF NOT EXISTS discente_monografia (
 	idDiscentesMono INT NOT NULL AUTO_INCREMENT ,
 	idDiscente INT NOT NULL,
 	idMonografia INT NOT NULL,
@@ -70,7 +71,7 @@ CREATE TABLE discente_monografia (
 	FOREIGN KEY (idMonografia) REFERENCES monografias (idMonografia) ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
-CREATE TABLE orientadores (
+CREATE TABLE IF NOT EXISTS orientadores (
 	idOrientadores INT NOT NULL AUTO_INCREMENT ,
 	idDocente INT NOT NULL,
 	idMonografia INT NOT NULL,
@@ -79,7 +80,7 @@ CREATE TABLE orientadores (
 	FOREIGN KEY (idMonografia) REFERENCES monografias (idMonografia) ON DELETE CASCADE ON UPDATE CASCADE
 )ENGINE = InnoDB;
 
-CREATE TABLE coorientadores (
+CREATE TABLE IF NOT EXISTS coorientadores (
 	idCoorientadores INT NOT NULL AUTO_INCREMENT ,
 	idDocente INT NOT NULL,
 	idMonografia INT NOT NULL,

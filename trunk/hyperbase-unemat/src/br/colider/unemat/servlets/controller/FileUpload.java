@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
@@ -38,16 +39,15 @@ public class FileUpload extends HttpServlet {
     	// Check that we have a file upload request
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
-		System.out.println("--- Upload ---");
-		
 		if (isMultipart) {
 
 			//FileUploadListener listener = new FileUploadListener(request
 			//		.getContentLength());
 
-			//HttpSession session = request.getSession();
-			//session.setAttribute("LISTENER", listener);
-
+			HttpSession session = request.getSession();
+			String abstract_ = session.getAttribute("abstract").toString();
+			if(abstract_ != null)
+				System.out.println(abstract_);
 			FileItemFactory factory = new DiskFileItemFactory();
 
 			// Create a factory for disk-based file items
@@ -108,7 +108,7 @@ public class FileUpload extends HttpServlet {
 				 * Display newly uploaded file
 				 */
 				PrintWriter out = response.getWriter();
-				out.write("Arquivo gravado com Sucesso:" + newFileName);
+				out.write(newFileName);
 				//response.sendRedirect("files/");
 			}
 		}

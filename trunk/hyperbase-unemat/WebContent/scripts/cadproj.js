@@ -1,41 +1,24 @@
-function valida() {
 
-	var status = document.getElementById('status');
+function buscaNome() 
+{
+	var nome = document.getElementById('idfaluno').value;
 	
-	var campo = document.getElementById("idupload");
+	var logicanome = document.getElementById('logica').name;
+	var logica = document.getElementById('logica').value;
+	var result = document.getElementById('result');	
+	var size = nome.length;
 	
-	alert("" + campo.Value);
-	
-	var TamanhoString = campo.length;
-	var extensao = campo.substr(TamanhoString - 4, TamanhoString);
-
-	if (TamanhoString == 0) {
-		status.innerHTML = "Você precisa selecionar um arquivo antes de transmitir";
+	if (size == 0) {
+		result.innerHTML = "Você precisa selecionar um arquivo antes de transmitir";
 		return false;
 	} else {
-		var ext = ".pdf";// extensões desejadas
-
-		if (extensao == ext) {
-			flag = "ok";
-			break;
-		} else {
-			flag = "erro";
-		}
-
-		if (flag == "erro") {
-			status.innerHTML = "Tipo de arquivo invalido.\nArquivos validos: .pdf";			document.formBaixa.arquivo.value = "";
-			return false;
-		}
+		var url = "../hyperbase?nome=" + nome + "&" + logicanome + "=" + logica;
+		enviar(url,result);
 	}
-	
-	enviar(url);
-	
-	return true;
 }
-function val(){
-	alert("Aqui estou");
-}
-function GetXmlHttpObject() {
+
+function GetXmlHttpObject() 
+{
 	var xmlhttp;
 
 	// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -48,32 +31,27 @@ function GetXmlHttpObject() {
 	return xmlhttp;
 }
 
-function enviar(url) {
-
-
-	var status = document.getElementById('status');
-
+function enviar(url,this_result) 
+{
 	var xmlhttp = GetXmlHttpObject();
 
-	// antes era GET
-	xmlhttp.open("POST", url, true);
-	xmlhttp.setRequestHeader("Content-Type","multipart/form-data");
+	xmlhttp.open("GET", url, true);
+	
 
 	// status da conexao
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState == 1) // on load
-		// carregando...
 		{
-			status.innerHTML = "Inserindo...";
+			//do not
 		}
 		if (xmlhttp.readyState == 4) // ready
 		{
 			if (xmlhttp.status == 200) {
 				var resultado = xmlhttp.responseText;
-				status.innerHTML = resultado;
+				this_result.innerHTML = resultado;
 			} else {
 				alert("Problem retrieving XML data:" + xmlhttp.statusText);
-				status.innerHTML = "Erro nas funções do Ajax";
+				this_result.innerHTML = "Erro nas funções do Ajax";
 			}
 		}
 	};
