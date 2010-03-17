@@ -1,4 +1,4 @@
-// Copyright © 2000 by Apple Computer, Inc., All Rights Reserved.
+// Copyright ï¿½ 2000 by Apple Computer, Inc., All Rights Reserved.
 //
 // You may incorporate this Apple sample code into your own code
 // without restriction. This Apple sample code has been provided "AS IS"
@@ -50,5 +50,29 @@ function moveObject(objectId, newXCoordinate, newYCoordinate) {
 	return false;
     }
 } // moveObject
+// Formata Data DDMMAAA
+function formataData(campo){
+	campo.value = filtraCampo(campo);
+	vr = campo.value;
+	tam = vr.length;
 
+	if ( tam > 2 && tam < 5 )
+		campo.value = vr.substr( 0, tam - 2  ) + '/' + vr.substr( tam - 2, tam );
+	if ( tam >= 5 && tam <= 10 )
+		campo.value = vr.substr( 0, 2 ) + '/' + vr.substr( 2, 2 ) + '/' + vr.substr( 4, 4 ); 
 
+}
+
+//limpa todos os caracteres especiais do campo solicitado
+function filtraCampo(campo){
+	var s = "";
+	var cp = "";
+	vr = campo.value;
+	tam = vr.length;
+	for (i = 0; i < tam ; i++) {  
+		if (vr.substring(i,i + 1) != "/" && vr.substring(i,i + 1) != "-" && vr.substring(i,i + 1) != "."  && vr.substring(i,i + 1) != "," ){
+		 	s = s + vr.substring(i,i + 1);}
+	}
+	campo.value = s;
+	return cp = campo.value
+}

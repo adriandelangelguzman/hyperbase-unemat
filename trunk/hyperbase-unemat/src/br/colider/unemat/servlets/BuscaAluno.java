@@ -72,13 +72,15 @@ public class BuscaAluno implements Logic {
 		List<Aluno> alunos = dao.getAlunoByName(aluno.getNome());
 
 		Iterator<Aluno> iter = alunos.iterator();
+		int i = 1;
+		out.print("Alunos Encontrados (Selecione o desejado!):");
 		if (iter.hasNext()) {
 			while (iter.hasNext()) {
 				Aluno novoaluno = iter.next();
 				out.print("<br />");
 				out.print("<input type='radio' name='alunor' value='"
-						+ novoaluno.getMatricula()
-						+ "' onclick=\"selecionaValor(this.value)\" />" + " - "
+						+ novoaluno.getMatricula() + ":" + novoaluno.getNome()
+						+ "' onclick=\"selecionaValor(this.value)\" />" + " " + i++ + " : "
 						+ novoaluno.getMatricula() + " : "
 						+ novoaluno.getNome());
 			}

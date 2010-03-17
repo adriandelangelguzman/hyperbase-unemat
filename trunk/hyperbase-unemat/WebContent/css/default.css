@@ -15,9 +15,9 @@ body{
 	height:auto;
 }
 #header{
-	height:100px;
+	height:60px;
 	width:100%;
-	background: url("../images/cabecalho.png") top center no-repeat;
+	background: url("../images/top.png") top center no-repeat;
 }
 #menu{
 	height:auto;
@@ -26,7 +26,7 @@ body{
 }
 #content{
 	width:780px;
-	height:auto;
+	height:500px;
 	font-size:1em;
 }
 #content h1{
@@ -52,7 +52,7 @@ body{
 }
 #footer{
 	width:100%;
-	height:50px;
+	height:20px;
 	background-color:#ddd;
 	font-size:0.65em;
 	color:#555;
@@ -61,7 +61,7 @@ body{
 }
 #menu ul{
 	list-style:none;
-	padding:10px;
+	padding:5px;
 	padding-left:0;
 	margin:0;
 }
@@ -71,12 +71,10 @@ body{
 	margin-left:0;
 	margin-bottom:10px;
 	border-bottom:1px dotted gray;
-	border-left:5px solid gray;
-	border-right: 1px solid gray;
 }
 #menu ul li span {
 	margin-right: 2px;
-	padding-left: 22px;
+	padding-left: 25px;
 	padding-bottom: 7px;
 }
 #menu ul li span#id_con {
@@ -90,12 +88,51 @@ body{
 }
 	
 #menu ul li:hover{
-	border-left-color: #bfcfe2;
 	cursor:pointer;
-	background-color:#484848;
-	color:#bfcfe2;
+	background-color:#e7f1e3;
 }
 #menu ul li:active{
 	border-left-color: yellow;
 	color:yellow;
+}
+
+a:link,a:visited,a:hover {
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+}
+/** FORMS **/
+
+input,select,textarea {
+	background-color: #e7f1e3;
+	border-style:solid;
+	border-color: #cbd7c4;
+	border-width: 0.5px;
+	font: 11px verdana, arial, helvetica, sans-serif;
+	margin: 1px 0px;
+	padding: 3px 0px;
+}
+
+select {
+	padding: 2px 2px 2px 0;
+}
+
+textarea {
+	width: 400px;
+	height: 80px;
+	vertical-align: top;
+}
+#login {
+	text-align:right;
+}
+#logon{
+	display:inline-block;
+	line-height:32px; /* check your icon height */
+	padding-left:32px;
+	background: url(../images/login.png)  center left no-repeat;
+}
+#log_mess{
+	text-align: center;
+	color: maroon;
+	text-decoration: blink;
 }

@@ -1,0 +1,95 @@
+@CHARSET "UTF-8";
+
+body{
+	margin:0;
+	font-size: 0.8em;
+	font-family: tahoma,verdana,sans-serif;
+	color:black;
+}
+#corpo{
+	width: 800px;
+	margin: 0 auto;
+}
+#header,#message,#content,#footer{
+	float:left;
+}
+#message {
+	height:20px;
+	width:800px;
+	text-align: center;
+}
+#header{
+	height:85px;
+	width:800px;
+	background: url("../images/topo.png") top center no-repeat;
+}
+
+#content{
+	width:800px;
+	height:200px;
+	font-size:1em;
+	
+}
+table {
+	margin: auto;
+}
+#content h1{
+	color:#8E9DAF;
+}
+#content h2{
+	font-family: Trebuchet MS;
+	font-size:1.2em;
+	color:#5F7F6F;
+}
+#content ul{
+	list-style: url("../images/busca.png")
+}
+#content img{
+	margin:10px;
+}
+#dvform h1,p{
+	text-align: center;
+}
+#footer{
+	width:800px;
+	height:25px;
+	background-color:#acc6a7;
+	font-size:0.65em;
+	color:#555;
+	text-align:right;
+}
+#footer p {
+	vertical-align: baseline;
+}
+
+a:link,a:visited,a:hover {
+	color: #666;
+	font-weight: bold;
+	text-decoration: none;
+}
+/** FORMS **/
+
+input{
+	background-color: #e7f1e3;
+	border-style:solid;
+	border-color: #cbd7c4;
+	border-width: 0.5px;
+	font: 18px verdana, arial, helvetica, sans-serif;
+	margin: 1px 0px;
+	height: 30px;
+	width: 200px;
+}
+
+#logon{
+	width: 80px;
+	height: 30px;
+	border: 0;
+	background-color:white;
+}
+
+#register{
+	width: 80px;
+	height: 30px;
+	border: 0;
+	background-color:white;
+}

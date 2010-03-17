@@ -1,0 +1,57 @@
+<html>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+<body bgcolor="#FFFFFF" text="#000000">
+	<div id="corpo">
+		<div id="header"> </div> 
+		</p>
+		<div id="message">
+			<font face="Verdana, Arial, Helvetica, sans-serif" size="2">$Message</font>
+		</div>
+		<div id="content">
+		<div id="dvform">
+		<h1>Registro de Conta</h1>
+		<form method="post" action="$CGI">
+			<input type="hidden" name="redirect" value="$redirect" />
+			  <table border="0" cellpadding="5" cellspacing="0">
+			    <tr>
+			      <td align="right" valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">E-mail:</font></td>
+			  <td>
+			    <input type="text" name="user" value="$user" size="20" maxlength="255">
+			    <br />
+			        <i><font face="Verdana, Arial, Helvetica, sans-serif" size="1">(Este ser&aacute; seu identificador de login.)</font></i> </td>
+			</tr>
+			<tr>
+			      <td align="right" valign="top"><font size="2" face="Verdana, Arial, Helvetica, sans-serif">Name:</font></td>
+			  <td><input type="text" name="name" value="$name" size="35" maxlength="255"></td>
+			</tr>
+			<tr>
+			      <td align="right" valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Password:</font></td>
+			  <td><input type="password" name="pass" value="$pass" size="20" maxlength="255"></td>
+			</tr>
+			<tr>
+			      <td align="right" valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Password 
+			        again:</font></td>
+			  <td><input type="password" name="pass2" value="$pass2" size="20" maxlength="255"></td>
+			</tr>
+			<tr>
+			      <td align="right" valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">URL:</font></td>
+			  <td><input type="text" name="url" value="$url" size="35" maxlength="255"></td>
+			</tr>
+			<tr>
+			      <td align="right" valign="top"><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Description:</font></td>
+			      <td> <font face="Verdana, Arial, Helvetica, sans-serif" size="1">Please 
+			        tell us a little bit about yourself.</font><br />
+			    <textarea name="description" cols="35" rows="5" wrap="virtual">$description</textarea>
+			  </td>
+			</tr>
+			<tr>
+			      <td >&nbsp;</td>
+			      <td > <input id="register" type="image" src="images/registrar.png" name="register" border="0"></td>
+			</tr>
+			</table>
+		</form>
+		</div>
+		</div>
+	</div>
+</body>
+</html>

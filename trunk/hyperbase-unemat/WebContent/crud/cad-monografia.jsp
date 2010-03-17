@@ -1,4 +1,3 @@
-<span id="report" > </span>
 
 <div id="part1" class="form" style="visibility:visible;" >
 	<fieldset class="cadastro">
@@ -19,22 +18,10 @@
 			<span id="idnum"></span>
 			
 			<br />
-			<label>Data</label> 
-			<script type="text/javascript">
-				var cal = new CalendarPopup();
-				cal.setMonthNames('Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez');
-				cal.setDayHeaders('D','S','T','Q','Q','S','S');
-				cal.setWeekStartDay(1);
-				cal.setTodayText("Hoje");
-			</script>
+			<label>Data(dd/mm/aaaa)</label> 
+			<input type="text" name="data" value="" maxlength="10" onkeypress="return formataData(this);"> 
 			
-			<input type="text" name="data" value="" maxlength="10"> 
-			<input type="button" name="btdata" id="btdata" value="Selecionar" 
-				onClick="cal.select(document.forms[0].data,'btdata','dd/MM/yyyy'); return false;"
-				title="Selecionar Data" 
-			/>
 			<br />
-			
 			<label>Palavras Chave</label> 
 			<textarea name="keywords" id="keywords" /> </textarea>
 			<br />
@@ -56,4 +43,5 @@
 		<input type="button" value="Anterior" onClick="switchDiv('part2', 'part1');"> 
 		<input type="button" value="Enviar" onClick="submitTheInfo();">
 	</fieldset>
+<span id="report" > </span>
 </div>

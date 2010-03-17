@@ -15,7 +15,7 @@ body{
 	height:auto;
 }
 #header{
-	height:100px;
+	height:60px;
 	width:100%;
 	background: url("../../images/top.png") top center no-repeat;
 }
@@ -26,7 +26,7 @@ body{
 }
 #content{
 	width:780px;
-	height:auto;
+	height:500px;
 	font-size:1em;
 }
 #content h1{
@@ -52,7 +52,7 @@ body{
 }
 #footer{
 	width:100%;
-	height:50px;
+	height:20px;
 	background-color:#e7f1e3;
 	font-size:0.65em;
 	color:#555;
@@ -82,11 +82,11 @@ body{
 }
 
 #menu ul li span#id_cadm {
-	background: url("../../images/cadm.png") no-repeat;
+	background: url("../../images/monografia.png") no-repeat;
 	background-position: center;
 }
 #menu ul li span#id_cadp {
-	background: url("../../images/proj.png") no-repeat;
+	background: url("../../images/projeto.png") no-repeat;
 }
 #menu ul li span#id_ajuda {
 	background: url("../../images/ajuda.png") no-repeat;
@@ -94,12 +94,12 @@ body{
 #menu ul li span#id_aluno {
 	background: url("../../images/aluno.png") no-repeat;
 }
-	
+#menu ul li span#id_prof {
+	background: url("../../images/professor.png") no-repeat;
+}
 #menu ul li:hover{
-	border-left-color: #bfcfe2;
 	cursor:pointer;
-	background-color:#484848;
-	color:#bfcfe2;
+	background-color:#e7f1e3;
 }
 #menu ul li:active{
 	border-left-color: yellow;
@@ -145,15 +145,30 @@ input#pdf {
 	margin: 1px 0px;
 	padding: 3px 0px;
 }
-
-input#idbusca {
-	background: url(../../images/buscar.png) top left no-repeat;
-	cursor:pointer;
-	width:70px;
-	height:20px;
-	border: 0px;
-	margin-right: 10px;
+#login {
+	text-align:right;
 }
+#logoff{
+	display:inline-block;
+	line-height:20px; /* check your icon height */
+	padding-left:24px;
+	background: url(../../images/logoff.png)  center left no-repeat;
+}
+
+a[href$='#b'] {
+	display:inline-block;
+	line-height:24px; /* check your icon height */
+	padding-left:20px;
+	background: url(../../images/buscar.png)  center left no-repeat;
+}
+
+a[href$='.pdf'] {
+	display:inline-block;
+	line-height:18px; /* check your icon height */
+	padding-right:20px;
+	background: transparent url(../../images/pdf.png)  center right no-repeat;
+}
+
 input[disabled] {
 	border: 0px;
 	background-color: #fff;
@@ -165,17 +180,23 @@ input:focus,select:focus,textarea:focus {
 	border:0;
 	width: 200px;
 }
-#abusca {
-	border:0;
+
+fieldset #abusca {
+	border-style:dotted;
+	border-width: 0.5px;
+	border-color: #ccc;
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .legenda {
 	font-weight: bold;
 	color: #ccc;
 	font-weight: normal;
 	font-size: 16px;
 }
-#parte1 #parte2{
-	position: absolute;
+
+#login_mess{
+	text-align: center;
+	color: maroon;
 }
