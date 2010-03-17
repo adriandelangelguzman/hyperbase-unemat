@@ -12,6 +12,7 @@ public class CadastraProfessor implements Logic {
 
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
+		
 		String matricula = request.getParameter("matricula");
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");

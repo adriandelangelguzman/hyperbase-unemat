@@ -1,14 +1,12 @@
-<span id="report" > </span>
-
 <div id="part1" class="form" style="visibility:visible;" >
 	<fieldset class="cadastro">
-	<legend class="legenda">Cadastro</legend>
+	<legend class="legenda">Cadastro de Academico</legend>
 		<form name="cadastro" method="post" action="../hyperbase" >	
 			
 			<input type="hidden" name="hyperbase" value="CadastraAluno" />
 			
 			<label>Matricula:</label> <br />
-			<input type="text" name="matricula" id="matricula" /> <br />
+			<input type="text" name="matricula" id="matricula" onKeypress="return IsNumber(event);" /> <br />
 			
 			<label>Nome:</label> <br />
 			<input type="text" name="nome" id="idnome" onkeyup="this.value = this.value.toUpperCase()" size="50" /> <br />
@@ -38,4 +36,5 @@
 		<input type="button" value="Anterior" onClick="switchDiv('part2', 'part1');"> 
 		<input type="button" value="Enviar" onClick="submitTheInfo();">
 	</fieldset>
+<span id="report" > </span>
 </div>

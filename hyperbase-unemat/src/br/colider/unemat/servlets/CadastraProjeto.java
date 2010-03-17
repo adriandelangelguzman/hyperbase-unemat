@@ -19,6 +19,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import br.colider.unemat.dao.ProjetoDao;
 import br.colider.unemat.entities.Projeto;
+import br.colider.unemat.utilities.LoadProperties;
 
 public class CadastraProjeto extends HttpServlet {
 
@@ -35,7 +36,7 @@ public class CadastraProjeto extends HttpServlet {
 			throws ServletException, IOException {
 
 		File tmpFile = null;
-
+		LoadProperties properties = new LoadProperties();
 		String titulo = null;
 		String local = null;
 		String publico = null;
@@ -123,8 +124,10 @@ public class CadastraProjeto extends HttpServlet {
 
 			newFileName = Integer.toString(id) + newFileName;
 			dao.adicionaPdf(projeto, newFileName);
-
-			File dirToMove = new File("/home/benevid/Desktop/files/projetos/");
+			
+			String projeto_dir = properties.getProjetoDir();
+			
+			File dirToMove = new File(projeto_dir);
 			PrintWriter out = response.getWriter();
 			
 			if (dirToMove.exists()) {

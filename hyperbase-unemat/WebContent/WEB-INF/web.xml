@@ -76,12 +76,14 @@
     <servlet-name>CadastraProjeto</servlet-name>
     <url-pattern>/CadastraProjeto</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <description></description>
     <display-name>BuscaAluno</display-name>
     <servlet-name>BuscaAluno</servlet-name>
     <servlet-class>br.colider.unemat.servlets.BuscaAluno</servlet-class>
   </servlet>
+  
   <servlet-mapping>
     <servlet-name>BuscaAluno</servlet-name>
     <url-pattern>/BuscaAluno</url-pattern>

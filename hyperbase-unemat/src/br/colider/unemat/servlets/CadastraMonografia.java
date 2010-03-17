@@ -20,7 +20,6 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
-import org.w3c.dom.Document;
 
 import br.colider.unemat.dao.MonografiaDao;
 import br.colider.unemat.entities.Monografia;
@@ -154,11 +153,11 @@ public class CadastraMonografia extends HttpServlet {
 			
 			PrintWriter out = response.getWriter();
 			//out.println("Cadastro Realizado com Sucesso --");
-			out.write("<html>");
-				out.write("<label>Titulo:" + monografia.getTitulo() + "</label>");
-			out.write("</html>");
+			//out.write("<html>");
+			//	out.write("<label>Titulo:" + monografia.getTitulo() + "</label>");
+			//out.write("</html>");
 			
-			//response.sendRedirect("crud/cad-monografia.jsp");
+			response.sendRedirect("crud/index.jsp");
 			//RequestDispatcher rd = request.getRequestDispatcher("/crud/cad-monografia.jsp");
 			//rd.forward(request, response);
 			

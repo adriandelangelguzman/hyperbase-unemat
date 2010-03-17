@@ -9,8 +9,6 @@
 	formatador = new SimpleDateFormat("yyyy");
 	Integer ano = Integer.parseInt(formatador.format(data.getTime()));
 %>
-<div id="corpo" class="corpoclass">
-<span id="report" > </span>
 <div id="part1" style="visibility: visible;">
 	<fieldset class="cadastro">
 	<legend class="legenda">Cadastro de Projetos</legend>
@@ -20,7 +18,7 @@
 			<textarea name="titulo" id="idtitulo"> </textarea> <br />
 			
 			<label>Academico:</label>
-			<input type="button" id="idbusca" name="notsend" value="__Buscar" onClick="ativaBusca('ui');" /> <br />
+			<a href="#b" onClick="ativaBusca('ui');" ><span class="iconbusca"></span> Buscar </a>
 			
 			<div id="mats" style="visibility:hidden;" >
 			</div>
@@ -54,7 +52,6 @@
 			<br />
 			
 			<input type="button" name="notsend" value="Proximo" onClick="switchDone(this.form,'part1', 'part2');">
-		
 		</form>
 	</fieldset>
 </div>
@@ -68,5 +65,5 @@
 		<input type="button" value="Anterior" onClick="switchDiv('part2', 'part1');"> 
 		<input type="button" value="Enviar" onClick="submitTheInfo();">
 	</fieldset>
-</div>
+	<span id="report" > </span>
 </div>

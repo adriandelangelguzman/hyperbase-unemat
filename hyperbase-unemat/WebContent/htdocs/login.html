@@ -1,0 +1,43 @@
+<html>
+<link href="css/default.css" rel="stylesheet" type="text/css" />
+
+<body>
+	<div id="corpo">
+		<div id="header"> 
+		</div>
+		
+		<div id="message">
+		<font face="Verdana, Arial, Helvetica, sans-serif" size="2">$Message</font>
+		</div>
+		<div id="content">
+			<div id="dvform">
+				<form method="post" action="$CGI">
+					<table border=0 cellpadding=5 cellspacing=0>
+					<tr>
+					  <td align=right><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Login:</font></td>
+					  <td><input type="text" name="user" value="$user" size="20" maxlength="255"></td>
+					</tr>
+					<tr>
+					  <td align=right><font face="Verdana, Arial, Helvetica, sans-serif" size="2">Senha:</font></td>
+					  <td><input type="password" name="pass" value="$pass" size="20" maxlength="255"></td>
+					</tr>
+					<tr>
+					      <td align=center colspan=3>
+					      	<input id="logon" type="image" name="mode_login" src="images/logein.png" border="0">
+					      </td>
+					</tr>
+					</table>
+				    <input type="hidden" name="mac" value="$mac">
+				    <input type="hidden" name="token" value="$token">
+				    <input type="hidden" name="redirect" value="$redirect">
+				    <input type="hidden" name="gateway" value="$gateway">
+				    <input type="hidden" name="timeout" value="$timeout">
+				</form>
+				<p> Entre com seu usu&aacute;rio e senha para poder ter acesso a Internet.</p>
+			</div>
+			
+		</div>
+	
+	</div>
+</body>
+</html>
